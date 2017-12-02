@@ -7,7 +7,7 @@ export default class App extends Component {
         return (
             <div>
                 <div>
-                   Hello world!
+                   { this.props.children }
                 </div>
             </div>
         );

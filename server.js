@@ -11,7 +11,8 @@ const server = new WebpackDevServer(compiler, {
     stats: {
         colors: true,
         chunks: false
-    }
+    },
+    historyApiFallback: true
 });
 
 server.listen(3000, '0.0.0.0', () => {});

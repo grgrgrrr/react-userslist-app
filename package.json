@@ -21,8 +21,10 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
+    "font-awesome": "^4.7.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -31,6 +33,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "sass-loader": "^6.0.6",
+    "sass-variable-loader": "^0.1.2",
     "style-loader": "^0.19.0",
     "webpack": "^3.9.1"
   },
