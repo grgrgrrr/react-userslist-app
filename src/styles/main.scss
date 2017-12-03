@@ -1,7 +1,6 @@
-//@include font-face(Samplino, fonts/Samplino);
-@import "./grid";
+@import "variables";
 
 body {
   font-family: 'Roboto', sans-serif;
+  color: $darkGrey
 }
-

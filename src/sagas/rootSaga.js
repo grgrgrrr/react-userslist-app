@@ -6,7 +6,15 @@ function* fetchAllUsers(){
         const { data:response } = yield call(api.fetchUsers);
         yield put({type: 'USERS_FETCH_SUCCEED', payload: response});
     } catch(e){
-        console.log(e);
+        yield put({type: 'USERS_FETCH_FAILED'});
+    }
+}
+
+function* fetchUserAlbums(action){
+    try {
+
+    } catch(e){
+
     }
 }
 
