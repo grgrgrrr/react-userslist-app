@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import variables from '!!sass-variable-loader!../styles/_variables.scss';
+import {colors, shadow} from '../theme.js';
 
 const styles = {
-    borderBottom: `1px solid ${variables.lightGrey}`,
+    borderBottom: `1px solid ${colors.lightGrey}`,
     marginBottom: '1em'
 };
 

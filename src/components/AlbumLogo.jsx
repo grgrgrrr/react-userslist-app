@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import variables from '!!sass-variable-loader!../styles/_variables.scss';
+import {colors, shadow} from '../theme';
 
 const styles = {
     row: {
@@ -24,11 +24,11 @@ export default () => {
                 height: '3em',
                 marginLeft: '1em',
                 marginRight: '1em',
-                backgroundColor: variables.lightGrey
+                backgroundColor: colors.lightGrey
             }}></div>
             <div style={{
                 ...styles.square,
-                backgroundColor: variables.lightPrimary
+                backgroundColor: colors.lightPrimary
             }}></div>
         </div>
         <div style={styles.row}>
@@ -39,7 +39,7 @@ export default () => {
                 marginLeft: '0.5em',
                 marginRight: '0.5em',
                 marginTop: '0.5em',
-                backgroundColor: variables.middleGrey
+                backgroundColor: colors.middleGrey
             }}></div>
             <div style={{
                 ...styles.square,
@@ -47,7 +47,7 @@ export default () => {
                 height: '2em',
                 marginLeft: '1.5em',
                 marginRight: '1.5em',
-                backgroundColor: variables.darkGrey
+                backgroundColor: colors.darkGrey
             }}></div>
         </div>
     </div>

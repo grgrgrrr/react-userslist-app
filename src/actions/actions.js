@@ -15,3 +15,7 @@ export const fetchPhotos = id => ({
     type: 'PHOTOS_FETCH_REQUESTED',
     payload: id
 });
+
+export const clearPhotos = () => ({
+    type: 'PHOTOS_CLEAR'
+});

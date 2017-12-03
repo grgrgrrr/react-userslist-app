@@ -2,21 +2,24 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import Radium from 'radium';
 
-import variables from '!!sass-variable-loader!../styles/_variables.scss';
+import {colors, shadow} from '../theme.js';
 
 const styles = {
     card: {
-        width: '25%',
+        width: '28%',
         borderRadius: '2px',
-        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.1) 0px 1px 4px',
-        margin: '0.5em',
+        boxShadow: shadow.normal,
+        marginTop: '0.5em',
+        marginBottom: '0.5em',
+        marginLeft: '0.1em',
+        marginRight: '0.1em',
         padding: '1em',
         ':hover': {
-            boxShadow: 'rgba(0, 150, 136, 0.2) 0px 1px 15px, rgba(0, 150, 136, 0.2) 0px 1px 20px',
+            boxShadow: shadow.highlighted,
             cursor: 'pointer'
         },
         ':active': {
-            boxShadow: 'rgba(0, 150, 136, 0.2) 0px 1px 15px, rgba(0, 150, 136, 0.2) 0px 1px 20px',
+            boxShadow: shadow.highlighted,
             cursor: 'pointer'
         },
         '@media only screen and (max-width: 1070px)': {
@@ -33,7 +36,7 @@ const styles = {
     cardSubtitle: {
         fontWeight: 'normal',
         margin: '2px 0px',
-        color: variables.middleGrey
+        color: colors.middleGrey
     },
     cardBody: {
         marginTop: '1em'

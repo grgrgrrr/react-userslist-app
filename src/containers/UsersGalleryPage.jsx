@@ -5,18 +5,25 @@ import Radium from 'radium';
 import {Link as ReactRouterLink} from 'react-router';
 const Link = Radium(ReactRouterLink);
 
-import variables from '!!sass-variable-loader!../styles/_variables.scss';
+import {colors, shadow} from '../theme.js';
 import PageWrapper from '../components/PageWrapper';
 import UserCard from '../components/UserCard';
 import Card from '../components/Card';
 import AlbumLogo from '../components/AlbumLogo';
 import { fetchUsers, fetchAlbums, clearAlbums } from '../actions/actions';
+import { formatAlbumName } from '../formatters';
 
 const styles = {
+    currentUser: {
+        ':hover': {
+            boxShadow:  shadow.normal,
+            cursor: 'normal'
+        }
+    },
     albumsCard: {
-        width: '50%',
+        width: '60%',
         color: 'white',
-        backgroundColor: variables.primary,
+        backgroundColor: colors.primary,
         ':hover': {
             boxShadow: 'none',
             cursor: 'normal'
@@ -24,20 +31,18 @@ const styles = {
         ':active': {
             boxShadow: 'none',
             cursor: 'normal'
-        },
+        }
     },
     albumsContainer: {
         display: 'flex',
         flexDirection: 'row'
     },
-    albumColumn: {
-        width: '50%'
-    },
     linkStyle: {
+        marginRight: '5px',
         textDecoration: 'none',
-        color: variables.lightPrimary,
+        color: colors.lightPrimary,
         ':hover': {
-            color: variables.lightGrey
+            color: colors.lightGrey
         }
     }
 };
@@ -62,27 +67,34 @@ class UsersGalleryPage extends Component {
 
         return (
             <PageWrapper title={`Albums of ${currentUser.name}`}
-                         titleIcon="fa-user-circle">
-                <UserCard  user={currentUser}/>
+                         titleIcon="fa-user-circle"
+                         backButtonLink={this.props.params.albumId ? `/users/${currentUser.id}` : "/users"}
+            >
+                <UserCard  user={currentUser}
+                           style={styles.currentUser}
+                />
                 <Card title="Albums"
                       style={styles.albumsCard}>
                     <div style={styles.albumsContainer}>
-                        <div style={styles.albumColumn}>
+                        <div style={{ width: '70%' }}>
                             {
                                 albums.map(album => <div key={album.id}>
                                     <Link to={`/users/${currentUser.id}/album/${album.id}`} style={styles.linkStyle}>
-                                        {album.title.slice(0,1)[0].toUpperCase() + album.title.slice(1)}
+                                        {formatAlbumName(album.title)}
                                     </Link>
+                                    {
+                                        this.props.params.albumId == album.id &&
+                                        <i className="fa fa-picture-o" aria-hidden="true"></i>
+                                    }
                                 </div>)
                             }
                         </div>
-                        <div style={styles.albumColumn}>
+                        <div style={{ width: '30%' }}>
                             <AlbumLogo />
                         </div>
                     </div>
-
                 </Card>
-                { this.props.children }
+                    { this.props.children }
             </PageWrapper>
         );
     }

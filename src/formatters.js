@@ -1,0 +1,1 @@
+export const formatAlbumName = title => title.slice(0,1)[0].toUpperCase() + title.slice(1);

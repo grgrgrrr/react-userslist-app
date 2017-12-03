@@ -2,17 +2,17 @@ import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import Radium from 'radium';
 
-import variables from '!!sass-variable-loader!../styles/_variables.scss';
+import {colors, shadow} from '../theme.js';
 import Card from '../components/Card';
 
 const styles = {
     label: {
-        color: variables.primary,
+        color: colors.primary,
         marginRight: 4
     },
     smallText: {
         fontSize: '12px',
-        color: variables.middleGrey
+        color: colors.middleGrey
     }
 };
 
@@ -65,10 +65,11 @@ class UserCard extends Component {
     }
 
     render() {
-        const {user} = this.props;
+        const {user, style} = this.props;
         return <Card title={user.name}
                      subtitle={user.username}
                      handleOnClick={this.props.handleOnClick}
+                     style={style}
         >
             { this.renderInfoItem('email', user) }
             { this.renderInfoItem('phone', user) }
